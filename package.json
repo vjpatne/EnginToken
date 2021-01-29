@@ -1,0 +1,20 @@
+{
+  "name": "xtree-token-sale",
+  "version": "1.0.0",
+  "description": "XTree Token Sale ICO",
+  "main": "truffle-config.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "dev": "lite-server"
+  },
+  "author": "VJ",
+  "license": "VJENT",
+  "devDependencies": {
+    "lite-server": "^2.6.0"
+  },
+  "dependencies": {
+    "@truffle/contract": "^4.3.5"
+  }
+}
