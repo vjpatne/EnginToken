@@ -27,14 +27,22 @@ App = {
 
   initContracts: function() {
     $.getJSON("XtreeTokenSale.json", function(xtreeTokenSale) {
-      App.contracts.XtreeTokenSale = TruffleContract(xtreeTokenSale);
+      App.contracts.XtreeTokenSale = TruffleContract({
+        abi: xtreeTokenSale.abi,
+        unlinked_binary: xtreeTokenSale.bytecode,
+        address: xtreeTokenSale.address
+      });
       App.contracts.XtreeTokenSale.setProvider(App.web3Provider);
       App.contracts.XtreeTokenSale.deployed().then(function(xtreeTokenSale) {
         console.log("Xtree Token Sale Address:", xtreeTokenSale.address);
       });
     }).done(function() {
       $.getJSON("XtreeToken.json", function(xtreeToken) {
-        App.contracts.XtreeToken = TruffleContract(xtreeToken);
+        App.contracts.XtreeToken = TruffleContract({
+          abi: XtreeToken.abi,
+          unlinked_binary: XtreeToken.bytecode,
+          address: XtreeToken.address
+        });
         App.contracts.XtreeToken.setProvider(App.web3Provider);
         App.contracts.XtreeToken.deployed().then(function(xtreeToken) {
           console.log("Xtree Token Address:", xtreeToken.address);
